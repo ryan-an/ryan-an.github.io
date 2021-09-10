@@ -53,6 +53,12 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -293,18 +299,18 @@
                   
                 
                 
-  <div id="valine"></div>
+  <div id="twikoo"></div>
   <script type="text/javascript">
-    Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js', function() {
         var options = Object.assign(
-          {"appId":"JJrwBhLTUKY4sS1lzsd790Ld-gzGzoHsz","appKey":"Fukx7Xup6V7YYNs6aDOd54Nn","placeholder":"说点什么","path":"window.location.pathname","avatar":"robohash","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {"envId":"twikoo-2g2fquah8934e354","region":"ap-guangzhou","path":"window.location.pathname"},
           {
-            el: "#valine",
-            path: window.location.pathname
+            el: '#twikoo',
+            path: 'window.location.pathname'
           }
         )
-        new Valine(options);
+        twikoo.init(options)
       });
     });
   </script>
@@ -509,6 +515,15 @@
 
 
 
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/qipao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/daxuehua.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
 
 
 
