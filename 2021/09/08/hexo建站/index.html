@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>搭建 Hexo 博客 - Hexo</title>
+  <title>搭建 Hexo 博客 - 北岸的个人空间</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      164 字
+      298 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      3
        分钟
     </span>
   
@@ -228,17 +228,22 @@
             <h1 style="display: none">搭建 Hexo 博客</h1>
             
             <div class="markdown-body">
-              <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ npm <span class="hljs-keyword">install</span> hexo<br></code></pre></td></tr></table></figure>
+              <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>默认电脑已有node环境，接下来安装Hexo</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ npm <span class="hljs-keyword">install</span> hexo<br></code></pre></td></tr></table></figure>
 <p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> hexo init &lt;folder&gt;<br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> &lt;folder&gt;<br><span class="hljs-variable">$</span> npm install<br></code></pre></td></tr></table></figure>
 <h2 id="安装Fluid主题"><a href="#安装Fluid主题" class="headerlink" title="安装Fluid主题"></a>安装Fluid主题</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install <span class="hljs-comment">--save hexo-theme-fluid</span><br></code></pre></td></tr></table></figure>
 <p>然后在博客目录下创建 _config.fluid.yml，将主题的 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a>内容复制过去。</p>
 <h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 _config.yml：</p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">theme:</span> fluid  <span class="hljs-meta"># 指定主题</span><br><span class="hljs-symbol">language:</span> <span class="hljs-built_in">zh</span>-CN  <span class="hljs-meta"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="下载依赖运行项目"><a href="#下载依赖运行项目" class="headerlink" title="下载依赖运行项目"></a>下载依赖运行项目</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">yarn <span class="hljs-keyword">install</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">or</span><br><span class="hljs-keyword"></span>npm i<br><br><span class="hljs-comment"># 运行项目</span><br>yarn server<br></code></pre></td></tr></table></figure>
+<h2 id="下载依赖运行项目"><a href="#下载依赖运行项目" class="headerlink" title="下载依赖运行项目"></a>下载依赖运行项目</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">yarn <span class="hljs-keyword">install</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">or</span><br><span class="hljs-keyword"></span>npm i<br><span class="hljs-comment"># 运行项目</span><br>yarn server<br></code></pre></td></tr></table></figure>
 <h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 运行项目</span><br>hexo server<br><br><span class="hljs-meta"># 打包发布</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
-<h2 id="配置GitHub·page"><a href="#配置GitHub·page" class="headerlink" title="配置GitHub·page"></a>配置GitHub·page</h2>
+<h2 id="配置GitHub·page"><a href="#配置GitHub·page" class="headerlink" title="配置GitHub·page"></a>配置GitHub·page</h2><ul>
+<li>hexo可搭配GitHub-Page一键部署网站，具体详情步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a></li>
+<li>hexo提供了一键部署，一条命令将网站部署到服务器，具体步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">hexo一键部署</a></li>
+</ul>
+<p>配置完GitHub-Page网站就搭建完成啦，hexo的一键部署特别方便，打包及自动上传git发布，此外搭建到自己的服务器上只需要一个nginx即可，本文就不再描述了</p>
+
             </div>
             <hr>
             <div>
@@ -247,7 +252,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/web/">web</a>
+                      <a class="hover-with-bg" href="/categories/node/">node</a>
                     
                   </div>
                 
@@ -288,24 +293,22 @@
                   
                 
                 
-  <div class="disqus" style="width:100%">
-    <div id="disqus_thread"></div>
-    
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'http://example.com/2021/09/08/hexo%E5%BB%BA%E7%AB%99/';
-          this.page.identifier = '/2021/09/08/hexo%E5%BB%BA%E7%AB%99/';
-        };
-        Fluid.utils.loadComments('#disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        });
-      </script>
-    
-    <noscript>Please enable JavaScript to view the comments</noscript>
-  </div>
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JJrwBhLTUKY4sS1lzsd790Ld-gzGzoHsz","appKey":"Fukx7Xup6V7YYNs6aDOd54Nn","placeholder":"说点什么","path":"window.location.pathname","avatar":"robohash","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -395,6 +398,33 @@
 
 
   
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证123456号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>京公网安备12345678号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
 
   
 </footer>
