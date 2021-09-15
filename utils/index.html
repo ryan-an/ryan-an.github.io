@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>搭建 Hexo 博客 - 北岸的个人空间</title>
+  <title>工具 - 北岸的个人空间</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -34,8 +34,6 @@
     
   
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -69,7 +67,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -192,54 +190,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="搭建 Hexo 博客">
+            <span class="h2" id="subtitle" title="工具">
               
             </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-08 11:25" pubdate>
-        2021年9月8日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      383 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      4
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
 
             
           </div>
@@ -252,145 +205,27 @@
 
   <main>
     
-      
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">搭建 Hexo 博客</h1>
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：2021年9月15日 下午
-                
-              </p>
-            
-            <div class="markdown-body">
-              <blockquote>
-<p>心血来潮想搭建个自己的个人博客网站，发现Hexo这个神器，5分钟搭建网站加上极客的写作方式，我立马拍板！</p>
-</blockquote>
-<blockquote>
-<p><em><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 是一个基于nodejs 的静态博客网站生成器，支持 Markdown。</em></p>
-</blockquote>
-<blockquote>
-<p>决定往往在一瞬之间，开始吧~</p>
-</blockquote>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>默认电脑已有node环境，接下来安装Hexo</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ npm <span class="hljs-keyword">install</span> hexo<br></code></pre></td></tr></table></figure>
-<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> hexo init &lt;folder&gt;<br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> &lt;folder&gt;<br><span class="hljs-variable">$</span> npm install<br></code></pre></td></tr></table></figure>
-<h2 id="安装Fluid主题"><a href="#安装Fluid主题" class="headerlink" title="安装Fluid主题"></a>安装Fluid主题</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install <span class="hljs-comment">--save hexo-theme-fluid</span><br></code></pre></td></tr></table></figure>
-<p>然后在博客目录下创建 _config.fluid.yml，将主题的 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a>内容复制过去。</p>
-<h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 _config.yml：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">theme:</span> fluid  <span class="hljs-meta"># 指定主题</span><br><span class="hljs-symbol">language:</span> <span class="hljs-built_in">zh</span>-CN  <span class="hljs-meta"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure>
-<h2 id="下载依赖运行项目"><a href="#下载依赖运行项目" class="headerlink" title="下载依赖运行项目"></a>下载依赖运行项目</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">yarn <span class="hljs-keyword">install</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">or</span><br><span class="hljs-keyword"></span>npm i<br><span class="hljs-comment"># 运行项目</span><br>yarn server<br></code></pre></td></tr></table></figure>
-<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 运行项目</span><br>hexo server<br><br><span class="hljs-meta"># 打包发布</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
-<h2 id="配置GitHub·page"><a href="#配置GitHub·page" class="headerlink" title="配置GitHub·page"></a>配置GitHub·page</h2><ul>
-<li>hexo可搭配GitHub-Page一键部署网站，具体详情步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a></li>
-<li>hexo提供了一键部署，一条命令将网站部署到服务器，具体步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">hexo一键部署</a></li>
-</ul>
-<p>配置完GitHub-Page网站就搭建完成啦，hexo的一键部署特别方便，打包及自动上传git发布，此外搭建到自己的服务器上只需要一个nginx即可，本文就不再描述了</p>
-<p>开始愉快的写作吧~~·</p>
+<article class="page-content">
+  <p>工具working……</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/node/">node</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
-                    
-                  </div>
-                
+
+  
+</article>
+
               </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"twikoo-2g2fquah8934e354","region":"ap-guangzhou","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname'
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
-              </article>
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-  <div class="col-lg-7 mx-auto nopadding-x-md">
-    <div class="container custom post-custom mx-auto">
-      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
-    </div>
-  </div>
-
-
     
 
     
@@ -521,11 +356,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 

@@ -39,7 +39,6 @@
 
   
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/toubudaziji.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
 
 
@@ -123,9 +122,33 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/space/">
+                <i class="iconfont icon-exp-fill"></i>
+                空间
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/utils/">
+                <i class="iconfont icon-bug"></i>
+                工具
               </a>
             </li>
           
@@ -148,7 +171,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/bg1.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -199,11 +222,18 @@
           
             
           
-          安装 Hexo默认电脑已有node环境，接下来安装Hexo
+          
+心血来潮想搭建个自己的个人博客网站，发现Hexo这个神器，5分钟搭建网站加上极客的写作方式，我立马拍板！
+
+
+Hexo 是一个基于nodejs 的静态博客网站生成器，支持 Markdown。
+
+
+决定往往在一瞬之间，开始吧~
+
+安装 Hexo默认电脑已有node环境，接下来安装Hexo
 1$ npm install hexo
-安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。
-123$ hexo init &lt;folder&gt;$ cd &lt;folder&gt;$ npm install
-安装Fluid主题1npm install --save hexo-theme-flui
+安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新
         </a>
       </p>
 
@@ -421,9 +451,7 @@
   
 <script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/qipao.js"></script>
 <script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/daxuehua.js"></script>
 <script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
 
 
@@ -432,5 +460,5 @@
 <script  src="/js/boot.js" ></script>
 
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"left","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
