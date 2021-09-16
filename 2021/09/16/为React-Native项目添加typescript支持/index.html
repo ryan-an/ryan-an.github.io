@@ -18,7 +18,7 @@
   <meta name="author" content="北岸">
   <meta name="keywords" content="">
   
-  <title>搭建 Hexo 博客 - 北岸的个人空间</title>
+  <title>为ReactNative项目添加typescript支持 - 北岸的个人空间</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -264,7 +264,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="搭建 Hexo 博客">
+            <span class="h2" id="subtitle" title="为ReactNative项目添加typescript支持">
               
             </span>
 
@@ -274,8 +274,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-08 11:25" pubdate>
-        2021年9月8日 上午
+      <time datetime="2021-09-16 16:51" pubdate>
+        2021年9月16日 下午
       </time>
     </span>
   
@@ -286,7 +286,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      383 字
+      834 字
     </span>
   
 
@@ -296,7 +296,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      11
        分钟
     </span>
   
@@ -334,41 +334,41 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">搭建 Hexo 博客</h1>
+            <h1 style="display: none">为ReactNative项目添加typescript支持</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年9月15日 下午
+                  本文最后更新于：2021年9月16日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <blockquote>
-<p>心血来潮想搭建个自己的个人博客网站，发现Hexo这个神器，5分钟搭建网站加上极客的写作方式，我立马拍板！</p>
+              <h3 id="Ts和Js的区别"><a href="#Ts和Js的区别" class="headerlink" title="Ts和Js的区别"></a>Ts和Js的区别</h3><blockquote>
+<ol>
+<li>ts是静态类语言，可以做到声明即文档，js是动态类语言相对更灵活。</li>
+<li>如用ts写一个button组件可以清晰的知道，ButtonProps如是否必传，可选，style是什么类型，disabled是什么类型，较js，ts更易于维护和拓展，可以做到代码即注释，避免一个月不见</li>
+<li>代码自己都忘记自己写了什么的尴尬，</li>
+<li>ts对比js基础类型上，增加了 void/never/any/元组/枚举/以及一些高级类型</li>
+<li>js没有重载概念，ts有可以重载</li>
+<li>vscode/ide对ts有很友好的提示</li>
+<li>ts更利于重构</li>
+</ol>
 </blockquote>
-<blockquote>
-<p><em><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 是一个基于nodejs 的静态博客网站生成器，支持 Markdown。</em></p>
-</blockquote>
-<blockquote>
-<p>决定往往在一瞬之间，开始吧~</p>
-</blockquote>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><p>默认电脑已有node环境，接下来安装Hexo</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ npm <span class="hljs-keyword">install</span> hexo<br></code></pre></td></tr></table></figure>
-<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> hexo init &lt;folder&gt;<br><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> &lt;folder&gt;<br><span class="hljs-variable">$</span> npm install<br></code></pre></td></tr></table></figure>
-<h2 id="安装Fluid主题"><a href="#安装Fluid主题" class="headerlink" title="安装Fluid主题"></a>安装Fluid主题</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install <span class="hljs-comment">--save hexo-theme-fluid</span><br></code></pre></td></tr></table></figure>
-<p>然后在博客目录下创建 _config.fluid.yml，将主题的 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a>内容复制过去。</p>
-<h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 _config.yml：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">theme:</span> fluid  <span class="hljs-meta"># 指定主题</span><br><span class="hljs-symbol">language:</span> <span class="hljs-built_in">zh</span>-CN  <span class="hljs-meta"># 指定语言，会影响主题显示的语言，按需修改</span><br></code></pre></td></tr></table></figure>
-<h2 id="下载依赖运行项目"><a href="#下载依赖运行项目" class="headerlink" title="下载依赖运行项目"></a>下载依赖运行项目</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">yarn <span class="hljs-keyword">install</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">or</span><br><span class="hljs-keyword"></span>npm i<br><span class="hljs-comment"># 运行项目</span><br>yarn server<br></code></pre></td></tr></table></figure>
-<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta"># 运行项目</span><br>hexo server<br><br><span class="hljs-meta"># 打包发布</span><br>hexo deploy<br></code></pre></td></tr></table></figure>
-<h2 id="配置GitHub·page"><a href="#配置GitHub·page" class="headerlink" title="配置GitHub·page"></a>配置GitHub·page</h2><ul>
-<li>hexo可搭配GitHub-Page一键部署网站，具体详情步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">将 Hexo 部署到 GitHub Pages</a></li>
-<li>hexo提供了一键部署，一条命令将网站部署到服务器，具体步骤参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">hexo一键部署</a></li>
-</ul>
-<p>配置完GitHub-Page网站就搭建完成啦，hexo的一键部署特别方便，打包及自动上传git发布，此外搭建到自己的服务器上只需要一个nginx即可，本文就不再描述了</p>
-<p>开始愉快的写作吧~~·</p>
+<p>TypeScript可以编译生成JS文件，然后供给ReactNative调用<br>话不多说，直接开始吧</p>
+<h5 id="对项目添加TypeScript支持"><a href="#对项目添加TypeScript支持" class="headerlink" title="对项目添加TypeScript支持"></a>对项目添加TypeScript支持</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> typescript -g  <span class="hljs-comment">#全局安装</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">yarn <span class="hljs-keyword">add</span> -D typescript  <span class="hljs-meta">#项目根目录安装</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">yarn <span class="hljs-keyword">add</span> -g typings  <span class="hljs-meta">#项目添加TypeScript类型支持</span><br></code></pre></td></tr></table></figure>
+<h5 id="根目录添加配置tsconfig-json文件"><a href="#根目录添加配置tsconfig-json文件" class="headerlink" title="根目录添加配置tsconfig.json文件"></a>根目录添加配置tsconfig.json文件</h5><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">tsc <span class="hljs-comment">--init</span><br></code></pre></td></tr></table></figure>
+<p>项目根目录下将会生成tsconfig.json文件<br>按自身需求修改配置内容</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;compilerOptions&quot;</span>: &#123;<br>      <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;es6&quot;</span>,<br>      <span class="hljs-attr">&quot;allowJs&quot;</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-attr">&quot;jsx&quot;</span>: <span class="hljs-string">&quot;react&quot;</span>, <span class="hljs-comment">// 这里必须改为react，否则无法识别tsx</span><br>      <span class="hljs-attr">&quot;sourceMap&quot;</span>: <span class="hljs-literal">false</span>,<br>      <span class="hljs-attr">&quot;noImplicitAny&quot;</span>: <span class="hljs-literal">false</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;exclude&quot;</span>: [<br>      <span class="hljs-string">&quot;node_modules&quot;</span><br>  ],<br>  <span class="hljs-attr">&quot;paths&quot;</span>: &#123;<br>      <span class="hljs-attr">&quot;@/*&quot;</span>:[<span class="hljs-string">&quot;src/*&quot;</span>] <span class="hljs-comment">// 这里是目录别名 @代表src目录</span><br>    &#125;, <br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="添加相应的React库到TypeScript中，不然tsx代码中将不能使用相关模块"><a href="#添加相应的React库到TypeScript中，不然tsx代码中将不能使用相关模块" class="headerlink" title="添加相应的React库到TypeScript中，不然tsx代码中将不能使用相关模块"></a>添加相应的React库到TypeScript中，不然tsx代码中将不能使用相关模块</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">yarn <span class="hljs-builtin-name">add</span> -D typescript<br></code></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">yarn add -D <span class="hljs-meta">@types</span>/react <span class="hljs-meta">@types</span>/react-<span class="hljs-keyword">native</span> <span class="hljs-meta">@types</span>/react-navigation<br></code></pre></td></tr></table></figure>
+<p>至此，这个项目已经可以配置使用TypeScript进行ReactNative开发，感觉TypeScript比Javascript使用起来更爽，开发更便捷</p>
+<p>文件：Body.tsx</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; View, SafeAreaView &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;<br><span class="hljs-keyword">import</span> DStatusBar <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/components/DStatusBar&quot;</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (&#123; children, style=&#123;&#125; &#125;) =&gt; &#123;<br>    <span class="hljs-keyword">return</span> (<br>        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;[&#123;</span></span></span><br><span class="hljs-tag"><span class="xml">            <span class="hljs-attr">flex:</span> <span class="hljs-attr">1</span>,</span></span><br><span class="hljs-tag"><span class="xml">            <span class="hljs-attr">minHeight:</span> <span class="hljs-attr">global.SCREEN_HEIGHT</span>,</span></span><br><span class="hljs-tag"><span class="xml">            <span class="hljs-attr">width:</span> <span class="hljs-attr">global.SCREEN_WIDTH</span>,</span></span><br><span class="hljs-tag"><span class="xml">            <span class="hljs-attr">position:</span> &#x27;<span class="hljs-attr">relative</span>&#x27;,</span></span><br><span class="hljs-tag"><span class="xml">            <span class="hljs-attr">backgroundColor:</span> <span class="hljs-attr">global.gThemeFun.themeGetColor</span>(&#x27;<span class="hljs-attr">main_bg_color</span>&#x27;)</span></span><br><span class="hljs-tag"><span class="xml">        &#125;, <span class="hljs-attr">style</span>]&#125;&gt;</span></span><br><span class="xml">            <span class="hljs-tag">&lt;<span class="hljs-name">DStatusBar</span> /&gt;</span></span><br><span class="xml">            &#123;children&#125;</span><br><span class="xml">            <span class="hljs-tag">&lt;<span class="hljs-name">SafeAreaView</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">SafeAreaView</span>&gt;</span></span><br><span class="xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br>    )<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p>附上我遇到的一个问题，项目中以前的全局变量在ts中都无法使用，ts的全局变量需要重新声明<br>声明方法如下：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// ts全局变量声明</span><br><span class="hljs-keyword">declare</span> <span class="hljs-built_in">global</span> &#123;<br>    <span class="hljs-keyword">namespace</span> NodeJS &#123;<br>        <span class="hljs-keyword">interface</span> Global &#123;<br>            <span class="hljs-attr">gApi</span>: <span class="hljs-built_in">any</span>;  <span class="hljs-comment">// 全局api调用方法集</span><br>            gHttp: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 全局axios请求</span><br>            <span class="hljs-comment">// global.$api = apis()</span><br>            gStyle: <span class="hljs-built_in">any</span>;  <span class="hljs-comment">// 全局通用样式（不包过多主题）</span><br>            gImg: <span class="hljs-built_in">any</span>;  <span class="hljs-comment">// 全局图片路径字典</span><br>            gOs: <span class="hljs-built_in">String</span>;  <span class="hljs-comment">// 当前系统类型（android || ios）</span><br>            gThemeFun: <span class="hljs-built_in">any</span>; <span class="hljs-comment">// 全局多主题方法集</span><br>            $TRACK_KEY: <span class="hljs-built_in">String</span>; <span class="hljs-comment">// token的AES加密key</span><br>            $TRACK: <span class="hljs-built_in">String</span>; <span class="hljs-comment">// tonken密匙</span><br>            i18n: <span class="hljs-built_in">any</span>;  <span class="hljs-comment">// 全局多语言处理对象</span><br>            gFSize: <span class="hljs-built_in">Function</span>; <span class="hljs-comment">// 全局文字自适应手机屏幕大小函数</span><br>            GWSize: <span class="hljs-built_in">Function</span>; <span class="hljs-comment">// 全局宽度自适应手机屏幕大小函数</span><br>            gHSize: <span class="hljs-built_in">Function</span>; <span class="hljs-comment">// 全局高度自适应手机屏幕大小函数</span><br>            SCREEN_HEIGHT: <span class="hljs-built_in">number</span>;  <span class="hljs-comment">// 当前手机屏幕高度</span><br>            SCREEN_WIDTH: <span class="hljs-built_in">number</span>;   <span class="hljs-comment">// 当前手机屏幕宽度</span><br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 全局对象调用/赋值/修改：global.xxx</span><br><span class="hljs-keyword">import</span> &#123; Platform &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;<br><span class="hljs-comment">// 分辨率适配</span><br><span class="hljs-keyword">import</span> api <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/http/apis&quot;</span><br><span class="hljs-keyword">import</span> http <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/http/http&#x27;</span>;<br><span class="hljs-comment">// import apis from &#x27;@/http/apis/index&#x27;;</span><br><br><span class="hljs-comment">// 全局样式</span><br><span class="hljs-keyword">import</span> gStyle <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/assets/style/common&#x27;</span>;<br><br><span class="hljs-comment">// 图片管理</span><br><span class="hljs-keyword">import</span> imgManager <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/assets/img&quot;</span><br><br><span class="hljs-comment">// 多主题设置方法</span><br><span class="hljs-keyword">import</span> themeFun <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/theme/themeFun&#x27;</span>;<br><span class="hljs-comment">// 多语言</span><br><span class="hljs-keyword">import</span> &#123; i18n &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/utils/locales/index&#x27;</span>;<br><span class="hljs-comment">// 定义全局变量</span><br><span class="hljs-built_in">global</span>.gApi = api<br><span class="hljs-built_in">global</span>.gHttp = http<br><span class="hljs-built_in">global</span>.gStyle = gStyle<br><span class="hljs-built_in">global</span>.gImg = imgManager<br><span class="hljs-built_in">global</span>.gOs = Platform.OS<br><span class="hljs-built_in">global</span>.gThemeFun = themeFun<br><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -377,7 +377,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/node/">node</a>
+                      <a class="hover-with-bg" href="/categories/ReactNative/">ReactNative</a>
                     
                   </div>
                 
@@ -385,7 +385,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                      <a class="hover-with-bg" href="/tags/ts/">ts</a>
                     
                   </div>
                 
@@ -402,15 +402,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/16/React-Native%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7Reactotron/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ReactNative网络调试工具Reactotron</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/09/16/React-Native%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7Reactotron/">
+                        <span class="hidden-mobile">ReactNative网络调试工具Reactotron</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
