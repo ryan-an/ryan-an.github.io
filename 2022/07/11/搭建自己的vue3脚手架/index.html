@@ -1,0 +1,708 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="北岸">
+  <meta name="keywords" content="">
+  
+  <title>搭建自己的vue3脚手架 - 北岸的个人空间</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/bynotes/texiao/source/css/gundongtiao.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>北岸</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-exp-fill"></i>
+                生活空间
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/study">
+                    <i class="iconfont icon-books"></i>
+                    学习
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/shuoshuo">
+                    <i class="iconfont icon-comment"></i>
+                    叨叨
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/music">
+                    <i class="iconfont icon-music"></i>
+                    音乐
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/">
+                    <i class="iconfont icon-youtube-fill"></i>
+                    电影
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/game">
+                    <i class="iconfont icon-steam"></i>
+                    游戏
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/space/album">
+                    <i class="iconfont icon-images"></i>
+                    相册
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/">
+                    <i class="iconfont icon-copyright"></i>
+                    关于本站
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/about/me/">
+                    <i class="iconfont icon-addrcard"></i>
+                    关于我
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/utils/">
+                <i class="iconfont icon-bug"></i>
+                工具
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bg1.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="搭建自己的vue3脚手架">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-11 11:26" pubdate>
+        2022年7月11日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      35
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">搭建自己的vue3脚手架</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年11月18日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们每次搭建一个新的项目时，总要去配置那些常用的工具模块。重复去配置就会觉得非常麻烦，当然会有很多开源的脚手架，比如vue的脚手架<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/">vue-cli</a>等，脚手架为我们完成项目初始化的基础配置和一些必要的模块引入及配置，我们在此基础上再做项目和依赖的定制就省了很多事，懒人必备。</p>
+<h2 id="脚手架配置的内容"><a href="#脚手架配置的内容" class="headerlink" title="脚手架配置的内容"></a>脚手架配置的内容</h2><ul>
+<li>vite的基础配置</li>
+<li>i18n多语言方案</li>
+<li>多主题方案</li>
+<li>axios请求封装</li>
+<li>router路由封装配置</li>
+<li>vue全局组件封装注册</li>
+<li>vuex配置</li>
+<li>静态资源配置</li>
+<li>多环境发布配置</li>
+</ul>
+<p>以上配置都做到开箱即用，让我们直接投入到生产中去，再不要担心配置问题版本问题了。<br>通过vite创建我们的脚手架项目</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yarn create vite</span><br></code></pre></td></tr></table></figure>
+<p>在命令行选择vue项目框架 选择vue-ts</p>
+<h3 id="vite-config-ts构建工具配置"><a href="#vite-config-ts构建工具配置" class="headerlink" title="vite.config.ts构建工具配置"></a>vite.config.ts构建工具配置</h3><p>这里做一些打包构建的配置,脚手架这里就做一些项目常用的基础配置就好了，以后用的时候再根据需求二次定制</p>
+<blockquote>
+<p>引入scss预编译样式<br>设置静态资源<br>设置代理<br>多语言依赖导入<br>常用便于开发的配置</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; defineConfig &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span>;<br><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@vitejs/plugin-vue&quot;</span>;<br><span class="hljs-keyword">import</span> vueI18n <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@intlify/vite-plugin-vue-i18n&quot;</span>;<br><span class="hljs-keyword">import</span> path <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;path&quot;</span>;<br><span class="hljs-comment">// vite 首次加载慢且报错---添加缓存插件</span><br><span class="hljs-keyword">import</span> OptimizationPersist <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite-plugin-optimize-persist&quot;</span>;<br><span class="hljs-keyword">import</span> PkgConfig <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite-plugin-package-config&quot;</span>;<br><span class="hljs-keyword">import</span> vueJsx <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@vitejs/plugin-vue-jsx&quot;</span>;<br><br><span class="hljs-keyword">const</span> &#123; resolve &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;path&quot;</span>);<br><br><span class="hljs-comment">// https://vitejs.dev/config/</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineConfig(&#123;<br>  <span class="hljs-comment">// 引入自定义主题</span><br>  <span class="hljs-attr">css</span>: &#123;<br>    <span class="hljs-attr">preprocessorOptions</span>: &#123;<br>      <span class="hljs-comment">// 导入scss预编译程序</span><br>      <span class="hljs-attr">scss</span>: &#123;<br>        <span class="hljs-attr">additionalData</span>: <span class="hljs-string">`@use &quot;@/styles/modules/element/themeCommon.scss&quot; as *;`</span>,<br>      &#125;,<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    PkgConfig(),<br>    OptimizationPersist(),<br>    vue(),<br>    vueJsx(),<br>    vueI18n(&#123;<br>      <span class="hljs-attr">include</span>: path.resolve(__dirname, <span class="hljs-string">&quot;./src/utils/locales/**&quot;</span>),<br>    &#125;),<br>  ],<br>  <span class="hljs-comment">// 设置为打包资源相对路径，默认绝对</span><br>  <span class="hljs-attr">base</span>: <span class="hljs-string">&quot;./&quot;</span>, <span class="hljs-comment">//</span><br>  <span class="hljs-comment">// 静态资源服务的文件夹, 默认&quot;public&quot;</span><br>  <span class="hljs-attr">publicDir</span>: <span class="hljs-string">&quot;public&quot;</span>,<br>  <span class="hljs-comment">// 配置别名</span><br>  <span class="hljs-attr">resolve</span>: &#123;<br>    <span class="hljs-attr">alias</span>: &#123;<br>      <span class="hljs-string">&quot;@&quot;</span>: path.resolve(__dirname, <span class="hljs-string">&quot;src&quot;</span>),<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-comment">// 打包构建环境</span><br>  <span class="hljs-attr">build</span>: &#123;<br>    <span class="hljs-attr">outDir</span>: <span class="hljs-string">&quot;dist&quot;</span>,<br>    <span class="hljs-attr">rollupOptions</span>: &#123;<br>      <span class="hljs-attr">input</span>: &#123;<br>        <span class="hljs-attr">main</span>: resolve(__dirname, <span class="hljs-string">&quot;index.html&quot;</span>),<br>      &#125;,<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">server</span>: &#123;<br>    <span class="hljs-attr">port</span>: <span class="hljs-number">8080</span>,<br>    <span class="hljs-attr">proxy</span>: &#123;<br>      <span class="hljs-comment">// 配置代理 gapi</span><br>      <span class="hljs-string">&quot;/gapi&quot;</span>: &#123;<br>        <span class="hljs-attr">target</span>: <span class="hljs-string">&quot;https://lcplatdev.zkcserv.com&quot;</span>,<br>        <span class="hljs-attr">changeOrigin</span>: <span class="hljs-literal">true</span>,<br>        <span class="hljs-attr">rewrite</span>: <span class="hljs-function"><span class="hljs-params">path</span> =&gt;</span> path.replace(<span class="hljs-regexp">/^\/gapi/</span>, <span class="hljs-string">&quot;&quot;</span>),<br>      &#125;,<br>    &#125;,<br>  &#125;,<br>&#125;);<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="tsconfig-json-TypeScript规则配置"><a href="#tsconfig-json-TypeScript规则配置" class="headerlink" title="tsconfig.json TypeScript规则配置"></a>tsconfig.json TypeScript规则配置</h3><p>因为我们项目中使用的ts，所以需要这个配置文件，TypeScript 编译器可以根据它的规则来对代码进行编译。<br>关于详细配置查看<a target="_blank" rel="noopener" href="https://www.tslang.cn/docs/handbook/tsconfig-json.html">官网文档</a><br>这里我们就做一些一般需要用到的基础的配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;compilerOptions&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;target&quot;</span>: <span class="hljs-string">&quot;esnext&quot;</span>, <span class="hljs-comment">//目标语言的版本</span><br>    <span class="hljs-attr">&quot;module&quot;</span>: <span class="hljs-string">&quot;esnext&quot;</span>, <span class="hljs-comment">//指定生成代码的模板标准</span><br>    <span class="hljs-attr">&quot;moduleResolution&quot;</span>: <span class="hljs-string">&quot;node&quot;</span>, <span class="hljs-comment">// 模块解析策略，ts默认用node的解析策略，即相对的方式导入</span><br>    <span class="hljs-attr">&quot;strict&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启所有严格的类型检查</span><br>    <span class="hljs-attr">&quot;jsx&quot;</span>: <span class="hljs-string">&quot;preserve&quot;</span>,<br>    <span class="hljs-attr">&quot;sourceMap&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 生成目标文件的sourceMap文件</span><br>    <span class="hljs-attr">&quot;resolveJsonModule&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;esModuleInterop&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 允许export=导出，由import from 导入</span><br>    <span class="hljs-attr">&quot;lib&quot;</span>: [<span class="hljs-string">&quot;esnext&quot;</span>, <span class="hljs-string">&quot;dom&quot;</span>], <span class="hljs-comment">// TS需要引用的库，即声明文件，es5 默认引用dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如es8的数组新特性需要引入&quot;ES2019.Array&quot;,</span><br>    <span class="hljs-attr">&quot;types&quot;</span>: [<span class="hljs-string">&quot;vite/client&quot;</span>, <span class="hljs-string">&quot;element-plus/global&quot;</span>], <span class="hljs-comment">// 加载的声明文件包</span><br>    <span class="hljs-attr">&quot;noImplicitAny&quot;</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 不允许隐式的any类型</span><br>    <span class="hljs-attr">&quot;allowSyntheticDefaultImports&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;baseUrl&quot;</span>: <span class="hljs-string">&quot;./&quot;</span>, <span class="hljs-comment">// 解析非相对模块的基地址，默认是当前目录</span><br>    <span class="hljs-attr">&quot;allowJs&quot;</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">&quot;paths&quot;</span>: &#123;<br>      <span class="hljs-comment">// 路径映射，相对于baseUrl</span><br>      <span class="hljs-attr">&quot;@/*&quot;</span>: [<span class="hljs-string">&quot;src/*&quot;</span>],<br>      <span class="hljs-attr">&quot;public/*&quot;</span>: [<span class="hljs-string">&quot;public/*&quot;</span>]<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">&quot;exclude&quot;</span>: [<br>    <span class="hljs-comment">//指定编译器需要排除的文件或文件夹。</span><br>    <span class="hljs-string">&quot;node_modules&quot;</span><br>  ],<br>  <span class="hljs-attr">&quot;include&quot;</span>: [<br>    <span class="hljs-comment">//指定编译需要编译的文件或目录。&quot;src/**/*.vue&quot;,</span><br>    <span class="hljs-string">&quot;src/**/*.ts&quot;</span>,<br>    <span class="hljs-string">&quot;src/**/*.d.ts&quot;</span>,<br>    <span class="hljs-string">&quot;./*.d.ts&quot;</span>,<br>    <span class="hljs-string">&quot;src/**/*.tsx&quot;</span>,<br>    <span class="hljs-string">&quot;src/**/*.vue&quot;</span>,<br>    <span class="hljs-string">&quot;src/styles/common.sass&quot;</span>,<br>    <span class="hljs-string">&quot;global.d.ts&quot;</span>,<br>    <span class="hljs-string">&quot;mock/MockServer.ts&quot;</span><br>  ]<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h3><p>vite自带有多环境打包适配的方法<br>我们根目录新建三个文件<code>.env.development</code>、<code>.env.production</code>、<code>.env.test</code>,分别作为开发、生产、测试三个环境。<br>这里定义环境变量值，不同环境的配置文件设置不同的值，这里也是在我们使用脚手架的时候才去设置值的。也可以新建多个新的环境配置文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">BASE_URL</span> = <span class="hljs-string">&#x27;/gapi&#x27;</span><br><span class="hljs-attr">CDN_UPLOAD_URL</span> = <span class="hljs-string">&#x27;https://********&#x27;</span><br><span class="hljs-attr">CDN_CLIENT_URL</span>=<span class="hljs-string">&#x27;https:://********&#x27;</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string">```     </span><br><span class="hljs-string">环境变量的使用方法很简单,原理则是通过当前不同的运行环境去不同的环境文件里取对应的值</span><br><span class="hljs-string">```ts</span><br><span class="hljs-string">String(import.mate.env.XXX)</span><br></code></pre></td></tr></table></figure>
+<p>当然这里还有个配置，在package.json中定义命令传参指定运行环境,通过–mode传递需要运行/打包的环境，值就是上面新建的环境文件名</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;dev&quot;</span>: <span class="hljs-string">&quot;vite --mode development&quot;</span>,<br>    <span class="hljs-attr">&quot;dev:production&quot;</span>: <span class="hljs-string">&quot;vite --mode production &quot;</span>,<br>    <span class="hljs-attr">&quot;dev:test&quot;</span>: <span class="hljs-string">&quot;vue-tsc --noEmit &amp;&amp; vite --mode test &quot;</span>,<br>    <span class="hljs-attr">&quot;build&quot;</span>: <span class="hljs-string">&quot;vue-tsc --noEmit &amp;&amp; vite build --mode development&quot;</span>,<br>    <span class="hljs-attr">&quot;build:production&quot;</span>: <span class="hljs-string">&quot;vue-tsc --noEmit &amp;&amp; vite build --mode production&quot;</span>,<br>    <span class="hljs-attr">&quot;build:test&quot;</span>: <span class="hljs-string">&quot;vite build --mode test&quot;</span>,<br>    <span class="hljs-attr">&quot;tsc&quot;</span>: <span class="hljs-string">&quot;vue-tsc --noEmit --skipLibCheck&quot;</span>,<br>  &#125;,<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="支持多语言"><a href="#支持多语言" class="headerlink" title="支持多语言"></a>支持多语言</h3><p>安装vue-i18n,<code>yarn add vue-i18n@next</code>.配置全局i18n多语言支持<br>新建src/utils/locales/index.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; createI18n &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue-i18n&quot;</span>;<br><span class="hljs-keyword">import</span> zh_CN <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./zh_CN.json&#x27;</span><br><span class="hljs-keyword">import</span> en_US <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./en_US.json&#x27;</span><br><span class="hljs-keyword">let</span> i18nLange = <span class="hljs-string">&#x27;zh_CN&#x27;</span><br><span class="hljs-keyword">const</span> i18n = createI18n(&#123;<br>    <span class="hljs-attr">legacy</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">globalInjection</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//注入全局</span><br>    <span class="hljs-attr">locale</span>: i18nLange,<br>    <span class="hljs-attr">fallbackLocale</span>: [<span class="hljs-string">&quot;zh_CN&quot;</span>], <span class="hljs-comment">//找不到key就用中文</span><br>    <span class="hljs-attr">fallbackRoot</span>:<span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">messages</span>: &#123;<br>        zh_CN,<br>        en_US<br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> i18n;<br></code></pre></td></tr></table></figure>
+<p>新建src/utils/locales/zh_CN.json,配置中文翻译</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;hello&quot;</span>: <span class="hljs-string">&quot;你好&quot;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>新建src/utils/locales/en_US.json,配置中文翻译</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;hello&quot;</span>: <span class="hljs-string">&quot;hello&quot;</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>另外你可以新建其他任何语言文件，需要在index.ts中导入并传到messages参数中即可。<br>在main.ts中注入该多语言配置，挂载到Vue应用对象，就能全局使用多语言开发了，模板调用方式<code>$t(&#39;hello&#39;)</code>或vue3的<code>this.$t(&#39;hello&#39;)</code>,this代表上下文对象</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 引入多语言</span><br><span class="hljs-keyword">import</span> i18n <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/utils/locales/index&quot;</span>;<br>app.use(i18n);<br></code></pre></td></tr></table></figure>
+
+<h3 id="静态资源管理"><a href="#静态资源管理" class="headerlink" title="静态资源管理"></a>静态资源管理</h3><p>为便于管理，使静态资源与项目分离，我们做一个资源路径的映射管理<br>新建/public/img/index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> homeMenu <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./homeMenu&quot;</span>;<br><span class="hljs-keyword">const</span> imgUrl = &#123;<br>  <span class="hljs-attr">common</span>: &#123;<br>    <span class="hljs-attr">logo</span>: <span class="hljs-string">&quot;img/common/logo.png&quot;</span>,<br>    <span class="hljs-attr">photo_default_light</span>: <span class="hljs-string">&quot;img/common/photo_default_light.png&quot;</span>,<br>    <span class="hljs-attr">icon_add_px</span>: <span class="hljs-string">&quot;img/common/icon_add.png&quot;</span>,<br>    <span class="hljs-attr">icon_help</span>: <span class="hljs-string">&quot;img/common/icon_help.png&quot;</span>,<br>  &#125;,<br>  <span class="hljs-attr">login</span>: &#123;<br>    <span class="hljs-attr">apple</span>: <span class="hljs-string">&quot;img/login/apple.png&quot;</span>,<br>    <span class="hljs-attr">eye_icon_z</span>: <span class="hljs-string">&quot;img/login/eye_icon_z.png&quot;</span>,<br>    <span class="hljs-attr">eye_icon_b</span>: <span class="hljs-string">&quot;img/login/eye_icon_b.png&quot;</span>,<br>    <span class="hljs-attr">facebook</span>: <span class="hljs-string">&quot;img/login/facebook.png&quot;</span>,<br>    <span class="hljs-attr">icon_success</span>: <span class="hljs-string">&quot;img/login/icon_success.png&quot;</span>,<br>  &#125;,<br>  <span class="hljs-attr">homeMenu</span>:homeMenu,<br>&#125;;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> imgUrl;<br><br></code></pre></td></tr></table></figure>
+<p>对资源分模块管理,可自由新建资源模块文件夹并新建映射文件index.js在/public/img/index.js导入引用，格式如代码中的homeMenu/index.js代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">icon_add_link</span>: <span class="hljs-string">&quot;img/queryMen/icon_add_link@2x.png&quot;</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="全局组件、变量"><a href="#全局组件、变量" class="headerlink" title="全局组件、变量"></a>全局组件、变量</h3><h5 id="定义设置全局变量的管理，挂载到Vue应用实例中"><a href="#定义设置全局变量的管理，挂载到Vue应用实例中" class="headerlink" title="定义设置全局变量的管理，挂载到Vue应用实例中"></a>定义设置全局变量的管理，挂载到Vue应用实例中</h5><p>新建/plugins/globalVal.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">imgManager</span>(<span class="hljs-params">app</span>) </span>&#123;<br>  <span class="hljs-comment">// 对图片映射字典进行处理，可设置CDN前缀等</span><br>  <span class="hljs-keyword">import</span>(<span class="hljs-string">&quot;../../public/img/index&quot;</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    app.config.globalProperties.$imgUrl = res.default;<br>  &#125;);<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">app</span>) </span>&#123;<br>  <span class="hljs-comment">// 全局图片路径</span><br>  imgManager(app);<br>  app.config.globalProperties.$TRACK = <span class="hljs-string">&quot;XXXXXXXXXXXXXXXXXXX&quot;</span>;<br>  app.config.globalProperties.$TRACK_KEY = <span class="hljs-string">&quot;XXXXXXXXXXXXX&quot;</span>;<br>  app.config.globalProperties.$CDN_IMG = <span class="hljs-built_in">String</span>(<span class="hljs-keyword">import</span>.meta.env.CDN_UPLOAD_URL);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>声明全局变量类型,必须声明了全局变量，ts中才不会报错<br>新建/plugins/global.d.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">export</span> &#123;&#125;; <span class="hljs-comment">// 必须保留</span><br><span class="hljs-comment">// ts声明全局变量</span><br><span class="hljs-keyword">declare</span> <span class="hljs-built_in">module</span> <span class="hljs-string">&quot;@vue/runtime-core&quot;</span> &#123;<br>  <span class="hljs-keyword">interface</span> ComponentCustomProperties &#123;<br>    <span class="hljs-attr">$imgUrl</span>: <span class="hljs-built_in">any</span>;<br>    $TRACK: <span class="hljs-built_in">String</span>;<br>    $CDN_IMG: <span class="hljs-built_in">string</span>;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h5 id="注册全局组件"><a href="#注册全局组件" class="headerlink" title="注册全局组件"></a>注册全局组件</h5><p>我们全局组件可统一放在/src/components/common/中，然后在这里统一注册到全局。就不需要在每个使用到的业务页面中导入了。<br>新建/plugins/common.d.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> componentList = <span class="hljs-keyword">import</span>.meta.globEager(<span class="hljs-string">&#x27;../components/common/**&#x27;</span>);<br><span class="hljs-keyword">let</span> componentArray = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()<br><span class="hljs-built_in">Object</span>.keys(componentList).forEach(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> keyArray = key.split(<span class="hljs-string">&#x27;/&#x27;</span>)<br>    <span class="hljs-keyword">let</span> name = <span class="hljs-string">&#x27;D&#x27;</span> + keyArray[keyArray.length - <span class="hljs-number">1</span>].split(<span class="hljs-string">&#x27;.&#x27;</span>)[<span class="hljs-number">0</span>]<br>    componentArray[name] = componentList[key].default<br>&#125;)<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">app</span>) </span>&#123;<br>    <span class="hljs-built_in">Object</span>.keys(componentArray).forEach(<span class="hljs-function">(<span class="hljs-params">key</span>) =&gt;</span> &#123;<br>        app.component(key, componentArray[key])<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在main.ts中注入配置</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">//引入全局变量</span><br><span class="hljs-keyword">import</span> globalVal <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/plugins/globalVal&quot;</span>;<br><span class="hljs-comment">// 引入全局自定义组件</span><br><span class="hljs-keyword">import</span> common <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/plugins/common.d&quot;</span>;<br>app.use(d);<br>app.use(globalVal);<br></code></pre></td></tr></table></figure>
+<p>上述代码自动导入了/src/components/common/中的所有组件并注册到全局，添加了一个D前缀,全局组件建议大写字母开头，引用方式则为<code>&lt;d-xxx-aaa /&gt;</code>或者<code>&lt;DXxxAaa /&gt;</code><br>全局变量可以在页面中直接引用即可：<code>console.log($imgUrl)</code></p>
+<h3 id="router路由管理"><a href="#router路由管理" class="headerlink" title="router路由管理"></a>router路由管理</h3><p> 路由管理没有一个很标准的配置，但router又是项目中不可或缺的，这里只能做一下基础的导入配置，在使用的时候还是需要我们自己不断去根据业务去完善封装的。<br>新建src/router/index.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; createRouter, createWebHashHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue-router&quot;</span>;<br><span class="hljs-keyword">const</span> moduleList = <span class="hljs-keyword">import</span>.meta.globEager(<span class="hljs-string">&quot;./modules/main/**&quot;</span>);<br><span class="hljs-keyword">let</span> routes = <span class="hljs-built_in">Object</span>.keys(moduleList).reduce&lt;<span class="hljs-built_in">any</span>[]&gt;(<br>  <span class="hljs-function">(<span class="hljs-params">pre, k</span>) =&gt;</span> [...pre, ...moduleList[k].default],<br>  []<br>);<br><span class="hljs-comment">// 去重</span><br>routes = <span class="hljs-built_in">Array</span>.from(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(routes));<br><span class="hljs-keyword">const</span> routers = createRouter(&#123;<br>  <span class="hljs-attr">history</span>: createWebHashHistory(),<br>  routes,<br>&#125;);<br><br><span class="hljs-comment">// 全局路由守卫</span><br>routers.beforeEach(<span class="hljs-function">(<span class="hljs-params">to, <span class="hljs-keyword">from</span>, next</span>) =&gt;</span> &#123;<br>  next();<br>&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> routers;<br><br></code></pre></td></tr></table></figure>
+<p>新建文件src/router/modules/main/test.ts，这个路由文件被上述代码导入注册到了全局</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [<br>  &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;menuDemo&quot;</span>,<br>    <span class="hljs-attr">path</span>: <span class="hljs-string">&quot;/menuDemo&quot;</span>,<br>    <span class="hljs-attr">component</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">&quot;@/views/demo.vue&quot;</span>),<br>  &#125;,<br>];<br><br></code></pre></td></tr></table></figure>
+<p>在main.ts中注入配置</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router&quot;</span>;<br>app.use(router);<br></code></pre></td></tr></table></figure>
+<p>通过路由/menuDemo在浏览器即可跳转到demo.vue页面。</p>
+<blockquote>
+<p>注意：路由配置及使用多种多样复杂的很，这里只是做了基础的使用，具体请参考<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/">vue-router官网文档</a></p>
+</blockquote>
+<p>另外的axios封装、vuex等缓存方案使用也是项目中必须的，考虑到这两个插件扩展性太高，需要太多自定义配置，就不放入脚手架中了，建议参考官网文档按需配置自己项目的请求和缓存方案<br><a target="_blank" rel="noopener" href="http://www.axios-js.com/">axios官网</a><br><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/">vuex官网</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/vue3/">vue3</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vue3/">vue3</a>
+                    
+                      <a class="hover-with-bg" href="/tags/cli/">cli</a>
+                    
+                      <a class="hover-with-bg" href="/tags/typescript/">typescript</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/28/css%E5%8F%98%E9%87%8F%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%BB%E4%BD%93%E7%9A%AE%E8%82%A4%E5%88%87%E6%8D%A2/">
+                        <span class="hidden-mobile">css变量实现多主体皮肤切换</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"twikoo-2g2fquah8934e354","region":"ap-guangzhou","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname'
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        湘ICP备2021014854号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+            
+            <span>京公网安备12345678号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/metowolf/Metingjs@1.2/dist/Meting.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/love.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxingxing.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"left","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
